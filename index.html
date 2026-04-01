@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suite à notre échange — Augustin Desbois × Synapse Développement</title>
+    <style>
+        @font-face {
+            font-family: "FK Grotesk Mono";
+            src: url("./assets/fonts/FKGroteskSemiMonoTrial-Regular.otf") format("opentype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --off-black: #091717;
+            --inky-blue: #133b39;
+            --peacock: #2e5e5a;
+            --true-turquoise: #20808d;
+            --plex-blue: #2e8e8a;
+            --sky: #b4dbde;
+            --paper: #fbfaf4;
+            --paper-deep: #f2efe6;
+            --ecru: #e4e3d4;
+            --apricot: #ffd2a6;
+            --terra-cotta: #a84b2f;
+            --boysenberry: #944454;
+            --white: #ffffff;
+            --text: #102120;
+            --text-soft: #496866;
+            --text-muted: #6c8582;
+            --line: rgba(19, 59, 57, 0.12);
+            --line-strong: rgba(46, 94, 90, 0.24);
+            --shadow-soft: 0 18px 44px rgba(9, 23, 23, 0.08);
+            --shadow-strong: 0 28px 72px rgba(9, 23, 23, 0.28);
+            --radius-xl: 34px;
+            --radius-lg: 26px;
+            --radius-md: 20px;
+            --radius-sm: 14px;
+            --container: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(46, 142, 138, 0.18), transparent 30%),
+                linear-gradient(180deg, var(--off-black) 0, var(--off-black) 560px, var(--paper) 560px, var(--paper) 100%);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .page-nav {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 30;
+            padding: 18px 24px;
+            pointer-events: none;
+        }
+
+        .page-nav-inner {
+            max-width: var(--container);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 14px 18px;
+            border: 1px solid rgba(180, 219, 222, 0.12);
+            background: rgba(9, 23, 23, 0.62);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+            pointer-events: auto;
+        }
+
+        .brand {
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--paper);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            color: rgba(251, 250, 244, 0.72);
+            transition: background-color 0.24s ease, color 0.24s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(180, 219, 222, 0.12);
+            color: var(--paper);
+        }
+
+        .section {
+            scroll-margin-top: 110px;
+        }
+
+        .wrap {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            position: relative;
+            padding: 132px 0 84px;
+            color: var(--paper);
+            background:
+                radial-gradient(circle at 82% 18%, rgba(46, 142, 138, 0.2), transparent 24%),
+                linear-gradient(180deg, #081514 0%, #0b211f 76%, #102725 100%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 80px -10% auto auto;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(46, 142, 138, 0.18), transparent 65%);
+            filter: blur(18px);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 44px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(251, 250, 244, 0.7);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 1px;
+            background: rgba(251, 250, 244, 0.34);
+        }
+
+        h1 {
+            max-width: 10ch;
+            font-size: clamp(3.4rem, 11vw, 6.7rem);
+            line-height: 0.94;
+            letter-spacing: -0.075em;
+            margin-bottom: 18px;
+        }
+
+        .hero-subtitle {
+            max-width: 38ch;
+            font-size: clamp(1.08rem, 2.2vw, 1.28rem);
+            line-height: 1.55;
+            color: rgba(251, 250, 244, 0.8);
+            margin-bottom: 28px;
+        }
+
+        .hero-intro {
+            max-width: 39ch;
+            color: rgba(180, 219, 222, 0.92);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 34px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(180, 219, 222, 0.18);
+            transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button.primary {
+            background: linear-gradient(135deg, var(--true-turquoise), var(--plex-blue));
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        .button.secondary {
+            color: var(--paper);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-reading {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 690px;
+        }
+
+        .reading-chip {
+            padding: 15px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(180, 219, 222, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(251, 250, 244, 0.84);
+        }
+
+        .reading-chip strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--paper);
+        }
+
+        .hero-panel {
+            position: relative;
+            padding: 22px;
+            border-radius: var(--radius-xl);
+            background:
+                linear-gradient(180deg, rgba(251, 250, 244, 0.08), rgba(251, 250, 244, 0.02)),
+                rgba(12, 33, 32, 0.78);
+            border: 1px solid rgba(180, 219, 222, 0.14);
+            box-shadow: var(--shadow-strong);
+            overflow: hidden;
+        }
+
+        .hero-panel::after {
+            content: "";
+            position: absolute;
+            inset: auto -50px -80px auto;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(255, 210, 166, 0.2), transparent 65%);
+            pointer-events: none;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .mini-card {
+            padding: 14px 14px 16px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(180, 219, 222, 0.12);
+        }
+
+        .mini-card-label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(251, 250, 244, 0.56);
+        }
+
+        .mini-card-value {
+            color: var(--paper);
+            font-size: 0.98rem;
+            line-height: 1.45;
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            aspect-ratio: 1.03;
+            border: 1px solid rgba(180, 219, 222, 0.16);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(9, 23, 23, 0.1), rgba(9, 23, 23, 0.54)),
+                radial-gradient(circle at 50% 30%, rgba(255, 210, 166, 0.16), transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .surface {
+            position: relative;
+            margin-top: -6px;
+        }
+
+        .surface::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(46, 94, 90, 0.18), transparent);
+        }
+
+        .section-block {
+            padding: 78px 0;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+            gap: 34px;
+            align-items: start;
+            margin-bottom: 36px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--true-turquoise);
+        }
+
+        .section-label::before {
+            content: "";
+            width: 26px;
+            height: 1px;
+            background: rgba(32, 128, 141, 0.28);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.02;
+            letter-spacing: -0.055em;
+            max-width: 13ch;
+        }
+
+        .section-kicker {
+            max-width: 44ch;
+            color: var(--text-soft);
+            font-size: 1.04rem;
+            line-height: 1.8;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(19, 59, 57, 0.08);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .glance-card {
+            padding: 26px;
+        }
+
+        .glance-card.featured {
+            background: linear-gradient(180deg, rgba(19, 59, 57, 0.96), rgba(46, 94, 90, 0.92));
+            color: var(--paper);
+            border-color: rgba(180, 219, 222, 0.14);
+        }
+
+        .glance-card .card-label,
+        .metric-card .card-label,
+        .signal-card .card-label,
+        .comparison-card .card-label,
+        .axis-card .card-label,
+        .roadmap-panel .card-label,
+        .scenario-summary .card-label,
+        .closing-card .card-label {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .glance-card .card-label,
+        .metric-card .card-label,
+        .signal-card .card-label,
+        .comparison-card .card-label,
+        .axis-card .card-label,
+        .roadmap-panel .card-label,
+        .scenario-summary .card-label {
+            color: var(--true-turquoise);
+        }
+
+        .glance-card.featured .card-label,
+        .closing-card .card-label {
+            color: rgba(180, 219, 222, 0.78);
+        }
+
+        .glance-card h3,
+        .comparison-card h3,
+        .axis-card h3,
+        .closing-card h3 {
+            font-size: 1.28rem;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            margin-bottom: 12px;
+        }
+
+        .glance-card p,
+        .comparison-card p,
+        .signal-card p,
+        .detail-row dd,
+        .reason-card p,
+        .closing-card p,
+        .synapse-text p {
+            color: var(--text-soft);
+        }
+
+        .glance-card.featured p,
+        .glance-card.featured li,
+        .glance-card.featured .reading-list {
+            color: rgba(251, 250, 244, 0.8);
+        }
+
+        .reading-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .reading-list li {
+            list-style: none;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.65;
+        }
+
+        .reading-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: currentColor;
+            opacity: 0.6;
+        }
+
+        .signal-strip {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .signal-card {
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(19, 59, 57, 0.08);
+        }
+
+        .signal-card strong,
+        .metric-value {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.22rem;
+            line-height: 1;
+            color: var(--text);
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .metric-card {
+            padding: 20px;
+        }
+
+        .metric-value {
+            margin-bottom: 8px;
+        }
+
+        .metric-card p {
+            color: var(--text-soft);
+        }
+
+        .synapse-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.44fr);
+            gap: 22px;
+        }
+
+        .synapse-text {
+            padding: 28px;
+        }
+
+        .synapse-text p + p {
+            margin-top: 16px;
+        }
+
+        .synapse-side {
+            display: grid;
+            gap: 18px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .comparison-card {
+            padding: 26px;
+        }
+
+        .comparison-card.muted {
+            background: linear-gradient(180deg, rgba(255, 210, 166, 0.22), rgba(255, 255, 255, 0.84));
+        }
+
+        .comparison-card.focus {
+            background: linear-gradient(180deg, rgba(180, 219, 222, 0.48), rgba(255, 255, 255, 0.9));
+        }
+
+        .quote-card {
+            padding: 26px;
+            background: linear-gradient(180deg, rgba(251, 250, 244, 0.96), rgba(242, 239, 230, 0.82));
+        }
+
+        blockquote {
+            font-size: 1.28rem;
+            line-height: 1.5;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            max-width: 34ch;
+        }
+
+        blockquote strong {
+            color: var(--terra-cotta);
+        }
+
+        .axis-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .axis-card {
+            padding: 26px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .axis-card[data-span="wide"] {
+            grid-column: span 7;
+        }
+
+        .axis-card[data-span="narrow"] {
+            grid-column: span 5;
+        }
+
+        .axis-index {
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(32, 128, 141, 0.08);
+            color: var(--true-turquoise);
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.76rem;
+        }
+
+        .axis-meta {
+            display: grid;
+            gap: 14px;
+        }
+
+        .axis-row {
+            display: grid;
+            grid-template-columns: 116px 1fr;
+            gap: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        .axis-row dt {
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .axis-row dd {
+            color: var(--text-soft);
+        }
+
+        .roadmap-shell {
+            padding: 28px;
+        }
+
+        .roadmap-steps {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-step {
+            padding: 18px 16px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            text-align: left;
+            transition: border-color 0.24s ease, background-color 0.24s ease, transform 0.24s ease;
+        }
+
+        .roadmap-step:hover {
+            transform: translateY(-1px);
+        }
+
+        .roadmap-step.active {
+            border-color: rgba(32, 128, 141, 0.28);
+            background: rgba(180, 219, 222, 0.24);
+        }
+
+        .roadmap-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 12px;
+            border-radius: 999px;
+            background: rgba(19, 59, 57, 0.08);
+            color: var(--text);
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .roadmap-step strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .roadmap-step span {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .roadmap-panel {
+            display: none;
+            padding: 24px;
+            border-radius: 22px;
+            background: linear-gradient(180deg, rgba(251, 250, 244, 0.98), rgba(255, 255, 255, 0.94));
+            border: 1px solid rgba(19, 59, 57, 0.08);
+        }
+
+        .roadmap-panel.active {
+            display: block;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .detail-row {
+            padding: 16px 0 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .detail-row dt {
+            margin-bottom: 8px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .detail-row dd {
+            line-height: 1.7;
+        }
+
+        .prototype-layout {
+            display: grid;
+            gap: 18px;
+        }
+
+        .scenario-tabs {
+            display: inline-flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 6px;
+            border-radius: 999px;
+            background: rgba(19, 59, 57, 0.06);
+            width: fit-content;
+        }
+
+        .scenario-tab {
+            padding: 11px 16px;
+            border-radius: 999px;
+            color: var(--text-muted);
+            transition: background-color 0.24s ease, color 0.24s ease;
+        }
+
+        .scenario-tab.active {
+            background: var(--true-turquoise);
+            color: var(--white);
+        }
+
+        .scenario-panel {
+            display: none;
+            padding: 28px;
+        }
+
+        .scenario-panel.active {
+            display: block;
+        }
+
+        .scenario-frame {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .scenario-summary {
+            padding: 24px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(19, 59, 57, 0.95), rgba(46, 94, 90, 0.9));
+            color: var(--paper);
+            min-height: 100%;
+        }
+
+        .scenario-summary p {
+            color: rgba(251, 250, 244, 0.78);
+        }
+
+        .scenario-summary h3 {
+            margin-bottom: 10px;
+            font-size: 1.34rem;
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+        }
+
+        .scenario-summary .summary-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .summary-list li {
+            list-style: none;
+            padding-top: 12px;
+            border-top: 1px solid rgba(180, 219, 222, 0.14);
+            color: rgba(251, 250, 244, 0.82);
+        }
+
+        .summary-list strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--paper);
+            font-size: 0.94rem;
+        }
+
+        .scenario-workbench {
+            display: grid;
+            gap: 16px;
+        }
+
+        .stage-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .stage-button {
+            min-height: 94px;
+            padding: 16px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.74);
+            text-align: left;
+            transition: border-color 0.24s ease, background-color 0.24s ease, transform 0.24s ease;
+        }
+
+        .stage-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .stage-button.active {
+            border-color: rgba(32, 128, 141, 0.3);
+            background: rgba(180, 219, 222, 0.22);
+        }
+
+        .stage-button span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 10px;
+            border-radius: 999px;
+            background: rgba(19, 59, 57, 0.08);
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .stage-button strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .stage-button small {
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .stage-detail {
+            display: none;
+            padding: 24px;
+            border-radius: 22px;
+            border: 1px solid rgba(19, 59, 57, 0.08);
+            background: linear-gradient(180deg, rgba(251, 250, 244, 0.98), rgba(255, 255, 255, 0.94));
+        }
+
+        .stage-detail.active {
+            display: block;
+        }
+
+        .stage-detail h4 {
+            font-size: 1.22rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+
+        .stage-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .reason-card {
+            padding: 24px;
+        }
+
+        .reason-card strong {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 14px;
+            border-radius: 999px;
+            background: rgba(168, 75, 47, 0.08);
+            color: var(--terra-cotta);
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .closing-card {
+            padding: 34px;
+            background:
+                radial-gradient(circle at top right, rgba(255, 210, 166, 0.2), transparent 34%),
+                linear-gradient(180deg, rgba(9, 23, 23, 0.96), rgba(19, 59, 57, 0.94));
+            color: var(--paper);
+            overflow: hidden;
+        }
+
+        .closing-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .contact-card {
+            padding: 22px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(180, 219, 222, 0.14);
+        }
+
+        .contact-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-card a {
+            display: block;
+            color: rgba(251, 250, 244, 0.82);
+            margin-top: 8px;
+        }
+
+        .section-block[data-reveal] {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .section-block[data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-note {
+            padding: 24px 0 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 1080px) {
+            .hero-grid,
+            .section-head,
+            .synapse-layout,
+            .scenario-frame,
+            .closing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-reading,
+            .signal-strip,
+            .metric-grid,
+            .roadmap-steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .axis-card[data-span="wide"],
+            .axis-card[data-span="narrow"] {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .page-nav {
+                padding: 16px;
+            }
+
+            .page-nav-inner {
+                border-radius: 26px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 4px;
+            }
+
+            .hero {
+                padding-top: 164px;
+            }
+
+            .grid-3,
+            .grid-2,
+            .comparison-grid,
+            .detail-grid,
+            .stage-detail-grid,
+            .reason-grid,
+            .stage-list {
+                grid-template-columns: 1fr;
+            }
+
+            .signal-strip,
+            .metric-grid,
+            .hero-reading,
+            .roadmap-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .axis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .axis-card[data-span="wide"],
+            .axis-card[data-span="narrow"] {
+                grid-column: auto;
+            }
+
+            .axis-row {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .wrap {
+                padding: 0 18px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hero-panel,
+            .roadmap-shell,
+            .scenario-panel,
+            .closing-card,
+            .synapse-text,
+            .comparison-card,
+            .glance-card,
+            .metric-card,
+            .signal-card,
+            .axis-card,
+            .reason-card,
+            .quote-card,
+            .contact-card {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .section-block {
+                padding: 64px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="page-nav" aria-label="Navigation principale">
+        <div class="page-nav-inner">
+            <div class="brand">Augustin Desbois × Synapse</div>
+            <div class="nav-links">
+                <a class="nav-link active" href="#hero">Accueil</a>
+                <a class="nav-link" href="#lecture-rapide">Synthèse</a>
+                <a class="nav-link" href="#synapse">Synapse</a>
+                <a class="nav-link" href="#besoin">Besoin</a>
+                <a class="nav-link" href="#contribution">Contribution</a>
+                <a class="nav-link" href="#approche">Approche</a>
+                <a class="nav-link" href="#prototype">Prototype</a>
+                <a class="nav-link" href="#pourquoi">Pourquoi</a>
+                <a class="nav-link" href="#conclusion">Conclusion</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero section" id="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div>
+                    <div class="eyebrow">Document de lecture stratégique</div>
+                    <h1>Suite à notre échange</h1>
+                    <p class="hero-subtitle">Compréhension du besoin commercial de Synapse Développement et proposition de contribution à la prospection.</p>
+                    <p class="hero-intro">Cette page est pensée comme un support de lecture rapide pour décideurs occupés. Elle synthétise le contexte, clarifie le besoin réel, puis détaille une contribution concrète, progressive et mesurable.</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#lecture-rapide">Lire l'essentiel</a>
+                        <a class="button secondary" href="#prototype">Voir le prototype</a>
+                    </div>
+                    <div class="hero-reading">
+                        <div class="reading-chip">
+                            <strong>Lecture rapide</strong>
+                            90 secondes pour saisir le contexte, l'enjeu et la logique d'action.
+                        </div>
+                        <div class="reading-chip">
+                            <strong>Lecture attentive</strong>
+                            Des sections courtes, structurées, avec peu de densité par écran.
+                        </div>
+                        <div class="reading-chip">
+                            <strong>Lecture détaillée</strong>
+                            Un prototype interactif pour explorer plusieurs scénarios de déploiement.
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-panel" aria-label="Repères de lecture">
+                    <div class="mini-grid">
+                        <div class="mini-card">
+                            <span class="mini-card-label">Contexte</span>
+                            <div class="mini-card-value">Synapse vend une IA utile, concrète, mise en production.</div>
+                        </div>
+                        <div class="mini-card">
+                            <span class="mini-card-label">Nœud du sujet</span>
+                            <div class="mini-card-value">Structurer une prospection plus active, lisible et mesurable.</div>
+                        </div>
+                        <div class="mini-card">
+                            <span class="mini-card-label">Apport possible</span>
+                            <div class="mini-card-value">Base dormante, LinkedIn B2B, CRM léger, dynamique terrain.</div>
+                        </div>
+                        <div class="mini-card">
+                            <span class="mini-card-label">Mode opératoire</span>
+                            <div class="mini-card-value">Immersion, diagnostic, roadmap, exécution progressive.</div>
+                        </div>
+                    </div>
+                    <figure class="hero-visual">
+                        <img src="./assets/images/Gemini_Generated_Image_j5w88bj5w88bj5w8.png" alt="Référence visuelle sombre et lumineuse, sans texte, inspirée de l'univers Perplexity">
+                    </figure>
+                </aside>
+            </div>
+        </div>
+    </header>
+
+    <main class="surface">
+        <section class="section section-block" id="lecture-rapide" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Lecture rapide</div>
+                        <h2>L'essentiel en 90 secondes</h2>
+                    </div>
+                    <p class="section-kicker">Avant d'entrer dans le détail, voici la lecture diagonale du document. L'idée n'est pas seulement de comprendre le besoin, mais d'identifier un angle de contribution directement utile à la croissance commerciale.</p>
+                </div>
+
+                <div class="grid-3">
+                    <article class="glance-card card">
+                        <span class="card-label">Le contexte</span>
+                        <h3>Synapse a une offre crédible, technique et opérationnelle.</h3>
+                        <p>Depuis 1994, l'entreprise déploie des solutions d'IA qui répondent à des usages métier concrets, avec une logique de mise en production réelle plutôt que de démonstration abstraite.</p>
+                    </article>
+
+                    <article class="glance-card card">
+                        <span class="card-label">Le besoin</span>
+                        <h3>Le vrai sujet n'est pas la vente avancée, mais la prospection.</h3>
+                        <p>La base existante est peu exploitée, LinkedIn n'est pas encore structuré comme canal B2B, et l'approche terrain peut devenir un vrai levier de visibilité et de contact.</p>
+                    </article>
+
+                    <article class="glance-card featured card">
+                        <span class="card-label">La contribution visée</span>
+                        <h3>Construire une dynamique commerciale plus active.</h3>
+                        <ul class="reading-list">
+                            <li>Réactiver une base dormante avec logique de segmentation.</li>
+                            <li>Installer un rythme de prospection digital plus visible.</li>
+                            <li>Mettre en place un suivi léger mais fiable des opportunités.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="signal-strip" aria-label="Points clés">
+                    <article class="signal-card">
+                        <span class="card-label">Angle</span>
+                        <strong>Prospection</strong>
+                        <p>Le besoin le plus utile à structurer aujourd'hui.</p>
+                    </article>
+                    <article class="signal-card">
+                        <span class="card-label">Point mort</span>
+                        <strong>Base dormante</strong>
+                        <p>Un actif commercial existant mais sous-exploité.</p>
+                    </article>
+                    <article class="signal-card">
+                        <span class="card-label">Canal</span>
+                        <strong>LinkedIn B2B</strong>
+                        <p>Un levier de crédibilité et de lead encore ouvert.</p>
+                    </article>
+                    <article class="signal-card">
+                        <span class="card-label">Résultat visé</span>
+                        <strong>Pipeline lisible</strong>
+                        <p>Une prospection plus active, mesurable et partageable.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="synapse" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Contexte</div>
+                        <h2>Synapse Développement en synthèse</h2>
+                    </div>
+                    <p class="section-kicker">Le positionnement de Synapse est assez net. L'entreprise ne vend pas un imaginaire IA, elle vend une intégration utile, crédible et opérationnelle. C'est ce cadre qui rend le sujet commercial intéressant.</p>
+                </div>
+
+                <div class="metric-grid">
+                    <article class="metric-card card">
+                        <span class="card-label">Depuis</span>
+                        <strong class="metric-value">1994</strong>
+                        <p>Une antériorité rare sur le sujet.</p>
+                    </article>
+                    <article class="metric-card card">
+                        <span class="card-label">Base</span>
+                        <strong class="metric-value">Toulouse</strong>
+                        <p>Un ancrage clair dans l'écosystème local.</p>
+                    </article>
+                    <article class="metric-card card">
+                        <span class="card-label">Équipe</span>
+                        <strong class="metric-value">~18 pers.</strong>
+                        <p>Une taille qui permet d'agir vite.</p>
+                    </article>
+                    <article class="metric-card card">
+                        <span class="card-label">Style</span>
+                        <strong class="metric-value">IA appliquée</strong>
+                        <p>Des solutions branchées sur des usages métier.</p>
+                    </article>
+                </div>
+
+                <div class="synapse-layout">
+                    <article class="synapse-text card">
+                        <p>Synapse Développement accompagne des entreprises et des acteurs publics dans l'intégration opérationnelle de l'intelligence artificielle. Son terrain n'est pas la promesse technologique générale, mais la résolution de problèmes concrets.</p>
+                        <p>Les cas d'usage évoqués sont cohérents entre eux : assistants conversationnels, agents IA, callbots, automatisation de réponses, analyse de données textuelles, valorisation de connaissances métier et accompagnement à l'adoption.</p>
+                        <p>Ce qui ressort, c'est une culture de la mise en production. Cette crédibilité métier est un avantage commercial fort, à condition d'être mieux transformée en dynamique de prospection et de visibilité.</p>
+                    </article>
+
+                    <div class="synapse-side">
+                        <article class="signal-card">
+                            <span class="card-label">Positionnement</span>
+                            <strong>Des réponses métier, pas de l'IA abstraite.</strong>
+                            <p>La proposition de valeur est plus solide quand elle reste ancrée dans le terrain.</p>
+                        </article>
+                        <article class="signal-card">
+                            <span class="card-label">Différenciation</span>
+                            <strong>Pédagogie + crédibilité + mise en œuvre réelle.</strong>
+                            <p>Le commercial peut s'appuyer sur un fond technique crédible, déjà présent.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="besoin" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Clarification</div>
+                        <h2>Ce que j'ai compris du besoin</h2>
+                    </div>
+                    <p class="section-kicker">L'entretien a permis de distinguer deux sujets souvent confondus. Cette distinction change immédiatement la manière de penser une alternance utile.</p>
+                </div>
+
+                <div class="comparison-grid">
+                    <article class="comparison-card muted card">
+                        <span class="card-label">Ce que le besoin n'est pas</span>
+                        <h3>Ce n'est pas d'abord un rôle de qualification technique avancée.</h3>
+                        <p>La gestion de dossiers complexes ou très techniques demande déjà un appui ingénierie en interne. Ce n'est donc pas l'endroit où un profil en alternance apporterait le plus de levier à court terme.</p>
+                    </article>
+
+                    <article class="comparison-card focus card">
+                        <span class="card-label">Le vrai sujet</span>
+                        <h3>Le besoin réel se situe dans la prospection et sa structuration.</h3>
+                        <p>Le potentiel existe déjà, mais il faut le rendre plus actif : réveiller la base, activer les canaux digitaux, installer un suivi lisible, et rendre l'effort commercial plus systématique.</p>
+                    </article>
+                </div>
+
+                <article class="quote-card card">
+                    <blockquote><strong>L'enjeu n'est pas d'exécuter un process commercial déjà bien en place.</strong> L'enjeu est plutôt de construire une dynamique de prospection plus active, plus claire et plus mesurable.</blockquote>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-block" id="contribution" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Contribution</div>
+                        <h2>Où je pourrais contribuer concrètement</h2>
+                    </div>
+                    <p class="section-kicker">Les axes ci-dessous ne sont pas pensés comme des idées abstraites. Ils décrivent des chantiers suffisamment simples pour être activables, mais assez structurants pour produire un effet visible sur la prospection.</p>
+                </div>
+
+                <div class="axis-grid">
+                    <article class="axis-card card" data-span="wide">
+                        <div class="axis-index">A</div>
+                        <div>
+                            <span class="card-label">Base existante</span>
+                            <h3>Réactiver la base dormante</h3>
+                        </div>
+                        <dl class="axis-meta">
+                            <div class="axis-row">
+                                <dt>Enjeu</dt>
+                                <dd>Transformer une base peu exploitée en pipeline plus actif et priorisé.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Action</dt>
+                                <dd>Trier, segmenter et qualifier les comptes selon des critères métier simples : secteur, taille, offre pertinente, fraîcheur de la relation.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Apport</dt>
+                                <dd>Un process reproductible, des listes actionnables, et moins de temps perdu sur la prospection initiale.</dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="axis-card card" data-span="narrow">
+                        <div class="axis-index">B</div>
+                        <div>
+                            <span class="card-label">Canal digital</span>
+                            <h3>Structurer la prospection LinkedIn</h3>
+                        </div>
+                        <dl class="axis-meta">
+                            <div class="axis-row">
+                                <dt>Enjeu</dt>
+                                <dd>Faire de LinkedIn un canal crédible de visibilité et de génération de leads B2B.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Action</dt>
+                                <dd>Mettre en place un rythme éditorial, du sourcing intelligent et des campagnes de sensibilisation mieux suivies.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Apport</dt>
+                                <dd>Une présence plus constante, plus professionnelle, et plus utile commercialement.</dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="axis-card card" data-span="narrow">
+                        <div class="axis-index">C</div>
+                        <div>
+                            <span class="card-label">Suivi commercial</span>
+                            <h3>Rationaliser la traçabilité des opportunités</h3>
+                        </div>
+                        <dl class="axis-meta">
+                            <div class="axis-row">
+                                <dt>Enjeu</dt>
+                                <dd>Éviter les pertes de prospects et rendre le pipeline plus lisible pour l'équipe.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Action</dt>
+                                <dd>Installer un CRM léger ou une logique de suivi simple, avec relances, tâches et automatisations utiles.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Apport</dt>
+                                <dd>Moins de friction, plus de visibilité, et un pilotage commercial plus propre.</dd>
+                            </div>
+                        </dl>
+                    </article>
+
+                    <article class="axis-card card" data-span="wide">
+                        <div class="axis-index">D</div>
+                        <div>
+                            <span class="card-label">Présence terrain</span>
+                            <h3>Développer une logique d'événementiel et d'approche directe</h3>
+                        </div>
+                        <dl class="axis-meta">
+                            <div class="axis-row">
+                                <dt>Enjeu</dt>
+                                <dd>Créer davantage d'occasions de contact direct avec les bons interlocuteurs.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Action</dt>
+                                <dd>Identifier les bons événements, préparer des formats de démonstration ou de prise de parole, et mieux capitaliser sur chaque présence.</dd>
+                            </div>
+                            <div class="axis-row">
+                                <dt>Apport</dt>
+                                <dd>Un renforcement de notoriété, plus de rencontres qualifiées, et une présence plus visible dans l'écosystème.</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="approche" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Approche</div>
+                        <h2>Mon approche, par étapes et livrables</h2>
+                    </div>
+                    <p class="section-kicker">L'idée n'est pas de lancer des actions dispersées. La progression ci-dessous installe d'abord un cadre de compréhension, puis une base de décision, avant de passer à l'exécution.</p>
+                </div>
+
+                <div class="roadmap-shell card">
+                    <div class="roadmap-steps" role="tablist" aria-label="Étapes de la démarche">
+                        <button class="roadmap-step active" data-roadmap-target="roadmap-1" role="tab" aria-selected="true">
+                            <span class="roadmap-step-number">1</span>
+                            <strong>Immersion</strong>
+                            <span>Semaines 1 à 2</span>
+                        </button>
+                        <button class="roadmap-step" data-roadmap-target="roadmap-2" role="tab" aria-selected="false">
+                            <span class="roadmap-step-number">2</span>
+                            <strong>Diagnostic</strong>
+                            <span>Semaines 3 à 6</span>
+                        </button>
+                        <button class="roadmap-step" data-roadmap-target="roadmap-3" role="tab" aria-selected="false">
+                            <span class="roadmap-step-number">3</span>
+                            <strong>Roadmap</strong>
+                            <span>Semaines 7 à 8</span>
+                        </button>
+                        <button class="roadmap-step" data-roadmap-target="roadmap-4" role="tab" aria-selected="false">
+                            <span class="roadmap-step-number">4</span>
+                            <strong>Exécution</strong>
+                            <span>Semaine 9+</span>
+                        </button>
+                    </div>
+
+                    <article class="roadmap-panel active" id="roadmap-1" role="tabpanel">
+                        <span class="card-label">Étape 1</span>
+                        <div class="detail-grid">
+                            <dl class="detail-row">
+                                <dt>Objectif</dt>
+                                <dd>Observer le fonctionnement commercial actuel et comprendre les priorités réelles de l'équipe.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Livrable</dt>
+                                <dd>Une synthèse de terrain claire, centrée sur les blocages, les opportunités et les marges de manœuvre.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Ce que je regarde</dt>
+                                <dd>Le cycle commercial, la qualité des outils, la réalité du temps disponible, et les irritants du quotidien.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Résultat attendu</dt>
+                                <dd>Une compréhension partagée, utile pour éviter de lancer les mauvais chantiers trop tôt.</dd>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="roadmap-panel" id="roadmap-2" role="tabpanel">
+                        <span class="card-label">Étape 2</span>
+                        <div class="detail-grid">
+                            <dl class="detail-row">
+                                <dt>Objectif</dt>
+                                <dd>Auditer la base, les canaux déjà ouverts, et la qualité du suivi commercial existant.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Livrable</dt>
+                                <dd>Un diagnostic priorisé, avec une lecture simple du potentiel réel et des premiers quick wins.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Ce que je teste</dt>
+                                <dd>La qualité des données, la segmentation possible, la maturité des usages LinkedIn et la traçabilité des relances.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Résultat attendu</dt>
+                                <dd>Une base décisionnelle solide pour choisir les actions les plus rentables à lancer.</dd>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="roadmap-panel" id="roadmap-3" role="tabpanel">
+                        <span class="card-label">Étape 3</span>
+                        <div class="detail-grid">
+                            <dl class="detail-row">
+                                <dt>Objectif</dt>
+                                <dd>Traduire le diagnostic en une feuille de route simple, alignée avec les ressources réelles.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Livrable</dt>
+                                <dd>Une roadmap partagée avec quick wins, chantiers structurants, calendrier et logique de mesure.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Principe</dt>
+                                <dd>Ne pas empiler les initiatives. Prioriser ce qui rend la prospection plus régulière et plus lisible.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Résultat attendu</dt>
+                                <dd>Un cap clair, compréhensible et suffisamment léger pour être réellement exécuté.</dd>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="roadmap-panel" id="roadmap-4" role="tabpanel">
+                        <span class="card-label">Étape 4</span>
+                        <div class="detail-grid">
+                            <dl class="detail-row">
+                                <dt>Objectif</dt>
+                                <dd>Mettre en œuvre les actions retenues, apprendre vite, ajuster sans rigidifier le système.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Livrable</dt>
+                                <dd>Des campagnes lancées, une base mieux qualifiée, un suivi plus propre et des apprentissages capitalisés.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Rythme</dt>
+                                <dd>Itérations courtes, feedback terrain, et arbitrage régulier sur ce qui mérite d'être amplifié.</dd>
+                            </dl>
+                            <dl class="detail-row">
+                                <dt>Résultat attendu</dt>
+                                <dd>Une dynamique de prospection qui commence déjà à produire de la visibilité et des signaux mesurables.</dd>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="prototype" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Prototype</div>
+                        <h2>Exemple de progression, selon trois vues</h2>
+                    </div>
+                    <p class="section-kicker">Cette partie est pensée pour la lecture détaillée. Elle montre comment les axes précédents pourraient se déployer dans le temps selon des scénarios plus offensifs ou plus prudents. Chaque étape s'ouvre au clic.</p>
+                </div>
+
+                <div class="prototype-layout">
+                    <div class="scenario-tabs" role="tablist" aria-label="Choix du scénario">
+                        <button class="scenario-tab active" data-scenario="scenario-proactive" role="tab" aria-selected="true">Approche proactive</button>
+                        <button class="scenario-tab" data-scenario="scenario-measured" role="tab" aria-selected="false">Approche mesurée</button>
+                        <button class="scenario-tab" data-scenario="scenario-dormante" role="tab" aria-selected="false">Gestion dormante</button>
+                    </div>
+
+                    <article class="scenario-panel card active" id="scenario-proactive" role="tabpanel">
+                        <div class="scenario-frame">
+                            <aside class="scenario-summary">
+                                <span class="card-label">Scénario 1</span>
+                                <h3>Approche proactive</h3>
+                                <p>Un scénario plus offensif, utile si Synapse veut rapidement transformer la base existante en opportunités, tout en rendant sa présence digitale plus visible.</p>
+                                <ul class="summary-list">
+                                    <li><strong>Quand l'utiliser</strong> Si la priorité est de créer du mouvement commercial rapidement.</li>
+                                    <li><strong>Rythme</strong> Campagnes, relances et contenus s'enchaînent sans attendre la perfection.</li>
+                                    <li><strong>Point de vigilance</strong> Le suivi doit être suffisamment propre pour éviter la dispersion.</li>
+                                </ul>
+                            </aside>
+
+                            <div class="scenario-workbench" data-stage-group="scenario-proactive">
+                                <div class="stage-list" role="tablist" aria-label="Étapes de l'approche proactive">
+                                    <button class="stage-button active" data-stage-target="proactive-1" role="tab" aria-selected="true">
+                                        <span>1</span>
+                                        <strong>Segmentation</strong>
+                                        <small>Trier la base selon le potentiel commercial.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="proactive-2" role="tab" aria-selected="false">
+                                        <span>2</span>
+                                        <strong>Campagne mail</strong>
+                                        <small>Relancer avec un message utile et mesurable.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="proactive-3" role="tab" aria-selected="false">
+                                        <span>3</span>
+                                        <strong>LinkedIn</strong>
+                                        <small>Installer une présence continue et crédible.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="proactive-4" role="tab" aria-selected="false">
+                                        <span>4</span>
+                                        <strong>Relance</strong>
+                                        <small>Qualifier les réponses et ouvrir le pipeline.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="proactive-5" role="tab" aria-selected="false">
+                                        <span>5</span>
+                                        <strong>Événements</strong>
+                                        <small>Créer des rencontres directes à forte crédibilité.</small>
+                                    </button>
+                                </div>
+
+                                <article class="stage-detail active" id="proactive-1" role="tabpanel">
+                                    <h4>Segmentation de la base</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Trier la base dormante par potentiel et préparer des segments activables.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Classer par secteur, taille, offre pertinente et dernière interaction pour isoler les comptes prioritaires.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>2 à 3 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Une base prête pour des campagnes ciblées au lieu d'une relance diffuse.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="proactive-2" role="tabpanel">
+                                    <h4>Première campagne de relance</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Tester un message pertinent sur les segments prioritaires.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Créer un template simple, l'envoyer à la base segmentée, puis mesurer ouverture, clic et réponse.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>3 à 4 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Premiers signaux commerciaux et apprentissages sur le message.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="proactive-3" role="tabpanel">
+                                    <h4>Activation continue de LinkedIn</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Faire monter Synapse en visibilité tout en nourrissant le lead inbound.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Publier des contenus utiles, partager des cas d'usage et lancer un sourcing ciblé auprès des comptes pertinents.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>En continu, avec un rythme éditorial stable.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Notoriété accrue et crédibilité renforcée sur le marché.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="proactive-4" role="tabpanel">
+                                    <h4>Qualification et relance des intéressés</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Transformer les réponses en vraies opportunités plutôt qu'en signaux dispersés.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Relancer les comptes chauds, proposer un échange exploratoire et qualifier selon des critères métier simples.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>2 à 3 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Un pipeline plus propre, avec des leads déjà mieux hiérarchisés.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="proactive-5" role="tabpanel">
+                                    <h4>Visibilité terrain et événements</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Créer des occasions de contact direct et densifier la crédibilité autour de l'offre.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Identifier 3 à 4 formats pertinents, préparer une démonstration ou une prise de parole, puis capitaliser sur les rencontres.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>4 à 5 mois.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Une présence plus visible dans l'écosystème et de nouvelles entrées en conversation.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scenario-panel card" id="scenario-measured" role="tabpanel">
+                        <div class="scenario-frame">
+                            <aside class="scenario-summary">
+                                <span class="card-label">Scénario 2</span>
+                                <h3>Approche mesurée</h3>
+                                <p>Un scénario plus prudent, pensé pour consolider les apprentissages avant de généraliser. Il réduit le risque d'agir trop vite sur une base encore mal qualifiée.</p>
+                                <ul class="summary-list">
+                                    <li><strong>Quand l'utiliser</strong> Si l'équipe veut d'abord objectiver le potentiel réel avant de scaler.</li>
+                                    <li><strong>Rythme</strong> Audit, test, itération, puis extension graduelle.</li>
+                                    <li><strong>Point de vigilance</strong> Ne pas confondre prudence et inertie.</li>
+                                </ul>
+                            </aside>
+
+                            <div class="scenario-workbench" data-stage-group="scenario-measured">
+                                <div class="stage-list" role="tablist" aria-label="Étapes de l'approche mesurée">
+                                    <button class="stage-button active" data-stage-target="measured-1" role="tab" aria-selected="true">
+                                        <span>1</span>
+                                        <strong>Audit base</strong>
+                                        <small>Comprendre la qualité réelle des données.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="measured-2" role="tab" aria-selected="false">
+                                        <span>2</span>
+                                        <strong>Tri partiel</strong>
+                                        <small>Tester sur un segment réduit.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="measured-3" role="tab" aria-selected="false">
+                                        <span>3</span>
+                                        <strong>Test email</strong>
+                                        <small>Mesurer le message avant extension.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="measured-4" role="tab" aria-selected="false">
+                                        <span>4</span>
+                                        <strong>Itération</strong>
+                                        <small>Affiner le process avant de passer à l'échelle.</small>
+                                    </button>
+                                </div>
+
+                                <article class="stage-detail active" id="measured-1" role="tabpanel">
+                                    <h4>Audit complet de la base</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Identifier les données manquantes, les doublons et le potentiel commercial vraiment exploitable.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Analyser la qualité de la base, quantifier les contacts encore valides et repérer les segments les plus prometteurs.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>2 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Une vision claire de ce que la base peut réellement produire.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="measured-2" role="tabpanel">
+                                    <h4>Tri d'un premier segment</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Tester la logique de segmentation sur une part limitée de la base, sans tout mobiliser d'un coup.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Classifier 30 à 40 % des contacts selon secteur, taille et proximité avec l'offre, puis isoler un segment de test.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>3 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Des premiers leads identifiés et une meilleure compréhension des signaux utiles.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="measured-3" role="tabpanel">
+                                    <h4>Campagne test sur segment réduit</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Valider le message avant de généraliser les efforts de relance.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Concevoir un email simple, le lancer sur le segment test, puis suivre les taux d'ouverture, de clic et de réponse.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>3 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Des apprentissages concrets avant de passer à une logique plus large.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="measured-4" role="tabpanel">
+                                    <h4>Itération et préparation du scaling</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Transformer les retours du test en process plus propre et plus reproductible.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Action</dt>
+                                            <dd>Ajuster le tri, le message et la logique de relance, puis préparer une montée en charge progressive sur le reste de la base.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Durée</dt>
+                                            <dd>3 semaines.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Impact</dt>
+                                            <dd>Un process validé qui peut ensuite être étendu avec moins de risque.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scenario-panel card" id="scenario-dormante" role="tabpanel">
+                        <div class="scenario-frame">
+                            <aside class="scenario-summary">
+                                <span class="card-label">Scénario 3</span>
+                                <h3>Gestion de la base dormante</h3>
+                                <p>Une lecture plus détaillée du chantier base de données, avec une articulation entre automatisation utile et validation humaine à chaque étape.</p>
+                                <ul class="summary-list">
+                                    <li><strong>Quand l'utiliser</strong> Si la base historique devient le point d'entrée principal du travail commercial.</li>
+                                    <li><strong>Rythme</strong> Nettoyer, scorer, relancer, qualifier, faire entrer les comptes dans un suivi vivant.</li>
+                                    <li><strong>Point de vigilance</strong> Garder l'IA comme accélérateur, pas comme substitut au jugement commercial.</li>
+                                </ul>
+                            </aside>
+
+                            <div class="scenario-workbench" data-stage-group="scenario-dormante">
+                                <div class="stage-list" role="tablist" aria-label="Étapes de la gestion de la base dormante">
+                                    <button class="stage-button active" data-stage-target="dormante-1" role="tab" aria-selected="true">
+                                        <span>1</span>
+                                        <strong>Scoring</strong>
+                                        <small>Prioriser selon le potentiel et l'historique.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="dormante-2" role="tab" aria-selected="false">
+                                        <span>2</span>
+                                        <strong>Nettoyage</strong>
+                                        <small>Fiabiliser la base avant relance.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="dormante-3" role="tab" aria-selected="false">
+                                        <span>3</span>
+                                        <strong>Séquence</strong>
+                                        <small>Lancer une relance structurée.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="dormante-4" role="tab" aria-selected="false">
+                                        <span>4</span>
+                                        <strong>Qualification</strong>
+                                        <small>Transformer les réponses en opportunités.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="dormante-5" role="tab" aria-selected="false">
+                                        <span>5</span>
+                                        <strong>RDV</strong>
+                                        <small>Préparer les rencontres à fort potentiel.</small>
+                                    </button>
+                                    <button class="stage-button" data-stage-target="dormante-6" role="tab" aria-selected="false">
+                                        <span>6</span>
+                                        <strong>CRM</strong>
+                                        <small>Rendre le suivi durable et traçable.</small>
+                                    </button>
+                                </div>
+
+                                <article class="stage-detail active" id="dormante-1" role="tabpanel">
+                                    <h4>Scoring de la base</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Trier les comptes selon leur potentiel commercial et leur proximité avec l'offre.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Scoring automatique à partir des données déjà disponibles.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Validation des cas ambigus et ajustement des catégories selon le contexte métier.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Une hiérarchie claire entre les comptes à activer vite et ceux à laisser en fond de portefeuille.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="dormante-2" role="tabpanel">
+                                    <h4>Nettoyage et fiabilisation</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Supprimer le bruit de la base avant d'engager des campagnes de relance.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Déduplication, détection d'invalidité et consolidation des données proches.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Arbitrage ponctuel sur les doublons ou structures complexes.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Une base plus propre, donc des campagnes plus crédibles et mieux mesurées.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="dormante-3" role="tabpanel">
+                                    <h4>Séquence de relance</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Réengager les prospects dormants avec une séquence cohérente plutôt qu'un simple message isolé.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Suggestion de contenu, cadence d'envoi et suivi des signaux d'engagement.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Relance plus personnalisée sur les comptes prioritaires ou sensibles.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Une relance plus régulière, moins manuelle, mais encore contrôlée.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="dormante-4" role="tabpanel">
+                                    <h4>Qualification des répondants</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Passer de l'intérêt au potentiel commercial, sans perdre de temps sur les faux signaux.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Aide au scoring, proposition d'offres pertinentes, et synthèse des échanges.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Conduite des échanges exploratoires avec les décideurs réellement intéressants.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Des opportunités mieux filtrées avant passage en rendez-vous commercial.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="dormante-5" role="tabpanel">
+                                    <h4>Transformation en rendez-vous</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Faire basculer les opportunités qualifiées vers des échanges plus engagés avec l'équipe commerciale.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Aide au timing, préparation du contexte et rappel des informations utiles avant rendez-vous.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Préparation fine de l'échange et conduite du rendez-vous avec le prospect.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Un passage plus fluide entre prospection et vente sans rupture de contexte.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+
+                                <article class="stage-detail" id="dormante-6" role="tabpanel">
+                                    <h4>Centralisation dans un suivi CRM</h4>
+                                    <div class="stage-detail-grid">
+                                        <dl class="detail-row">
+                                            <dt>Objectif</dt>
+                                            <dd>Rendre le pipeline durable, traçable et partageable par l'équipe.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Automatisation utile</dt>
+                                            <dd>Entrée de données simplifiée, relances automatiques et alertes sur les opportunités à ne pas laisser retomber.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Part humaine</dt>
+                                            <dd>Animation réelle du pipeline, arbitrage des priorités et suivi des comptes stratégiques.</dd>
+                                        </dl>
+                                        <dl class="detail-row">
+                                            <dt>Effet attendu</dt>
+                                            <dd>Une mémoire commerciale plus fiable et un pilotage plus propre des efforts de prospection.</dd>
+                                        </dl>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="pourquoi" data-reveal>
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <div class="section-label">Motivation</div>
+                        <h2>Pourquoi ce sujet m'intéresse réellement</h2>
+                    </div>
+                    <p class="section-kicker">Ce qui m'attire ici, ce n'est pas une simple exécution commerciale. C'est un sujet à la fois stratégique, concret et mesurable, avec une vraie place pour le raisonnement, la méthode et l'initiative.</p>
+                </div>
+
+                <div class="reason-grid">
+                    <article class="reason-card card">
+                        <strong>01</strong>
+                        <p><b>Parce que c'est un sujet de croissance réelle.</b> Structurer la prospection, ce n'est pas faire de l'administratif commercial. C'est créer des conditions concrètes pour que l'entreprise ouvre plus d'opportunités.</p>
+                    </article>
+                    <article class="reason-card card">
+                        <strong>02</strong>
+                        <p><b>Parce que cela demande du discernement.</b> Il faut adapter les actions au contexte de Synapse, à son offre, à sa maturité commerciale et à la réalité de son marché.</p>
+                    </article>
+                    <article class="reason-card card">
+                        <strong>03</strong>
+                        <p><b>Parce que l'impact peut se mesurer.</b> Leads, réponses, conversions, rythme des relances, visibilité du pipeline: les effets sont observables et donc améliorables.</p>
+                    </article>
+                    <article class="reason-card card">
+                        <strong>04</strong>
+                        <p><b>Parce que le sujet combine plusieurs compétences.</b> Données, contenu, relation, organisation, outils et sens commercial. C'est précisément cette combinaison qui le rend stimulant.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-block" id="conclusion" data-reveal>
+            <div class="wrap">
+                <article class="closing-card card">
+                    <div class="closing-grid">
+                        <div>
+                            <span class="card-label">Conclusion</span>
+                            <h3>Une contribution utile serait moins de “faire plus”, et davantage de rendre la prospection plus cohérente, plus active et mieux suivie.</h3>
+                            <p>Ce document synthétise ma compréhension du besoin identifié chez Synapse Développement et la manière dont je pourrais contribuer rapidement, puis durablement. Le point clé n'est pas d'ajouter du bruit commercial, mais de créer un système de prospection plus lisible, plus méthodique et plus crédible.</p>
+                            <p style="margin-top:14px;">C'est précisément ce type de sujet que je cherche en alternance: un terrain concret, une progression visible, et un cadre où l'on peut apprendre vite tout en créant un impact mesurable.</p>
+                        </div>
+
+                        <aside class="contact-card">
+                            <strong>Augustin Desbois</strong>
+                            <span style="color:rgba(251,250,244,0.72);">Échange, retour ou prochain rendez-vous</span>
+                            <a href="mailto:augustin.desbois@example.com">augustin.desbois@example.com</a>
+                            <a href="tel:+33612345678">+33 6 12 34 56 78</a>
+                        </aside>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <div class="wrap footer-note">Version locale conçue pour une lecture fluide, sur desktop comme sur mobile.</div>
+    </main>
+
+    <script>
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll(".section[id]");
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -80px 0px"
+        });
+
+        document.querySelectorAll("[data-reveal]").forEach((section) => {
+            sectionObserver.observe(section);
+        });
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const activeId = entry.target.id;
+                navLinks.forEach((link) => {
+                    const isActive = link.getAttribute("href") === "#" + activeId;
+                    link.classList.toggle("active", isActive);
+                });
+            });
+        }, {
+            rootMargin: "-35% 0px -55% 0px",
+            threshold: 0
+        });
+
+        sections.forEach((section) => navObserver.observe(section));
+
+        document.querySelectorAll(".roadmap-step").forEach((button) => {
+            button.addEventListener("click", () => {
+                const targetId = button.dataset.roadmapTarget;
+                document.querySelectorAll(".roadmap-step").forEach((item) => {
+                    item.classList.toggle("active", item === button);
+                    item.setAttribute("aria-selected", String(item === button));
+                });
+
+                document.querySelectorAll(".roadmap-panel").forEach((panel) => {
+                    panel.classList.toggle("active", panel.id === targetId);
+                });
+            });
+        });
+
+        const scenarioTabs = document.querySelectorAll(".scenario-tab");
+        const scenarioPanels = document.querySelectorAll(".scenario-panel");
+
+        scenarioTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                const targetId = tab.dataset.scenario;
+
+                scenarioTabs.forEach((item) => {
+                    const isActive = item === tab;
+                    item.classList.toggle("active", isActive);
+                    item.setAttribute("aria-selected", String(isActive));
+                });
+
+                scenarioPanels.forEach((panel) => {
+                    panel.classList.toggle("active", panel.id === targetId);
+                });
+            });
+        });
+
+        document.querySelectorAll("[data-stage-group]").forEach((group) => {
+            const buttons = group.querySelectorAll(".stage-button");
+            const panels = group.querySelectorAll(".stage-detail");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const targetId = button.dataset.stageTarget;
+
+                    buttons.forEach((item) => {
+                        const isActive = item === button;
+                        item.classList.toggle("active", isActive);
+                        item.setAttribute("aria-selected", String(isActive));
+                    });
+
+                    panels.forEach((panel) => {
+                        panel.classList.toggle("active", panel.id === targetId);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
