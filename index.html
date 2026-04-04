@@ -55,7 +55,7 @@
             font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Segoe UI", sans-serif;
             background:
                 radial-gradient(circle at top left, rgba(46, 142, 138, 0.18), transparent 30%),
-                linear-gradient(180deg, var(--off-black) 0, var(--off-black) 560px, var(--paper) 560px, var(--paper) 100%);
+                linear-gradient(180deg, var(--off-black) 0, var(--off-black) 540px, var(--paper) 640px, var(--paper) 100%);
             color: var(--text);
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
@@ -148,7 +148,7 @@
 
         .hero {
             position: relative;
-            padding: 132px 0 84px;
+            padding: 152px 0 120px;
             color: var(--paper);
             background:
                 radial-gradient(circle at 82% 18%, rgba(46, 142, 138, 0.2), transparent 24%),
@@ -168,8 +168,8 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-            gap: 44px;
+            grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+            gap: 56px;
             align-items: center;
         }
 
@@ -196,8 +196,8 @@
             max-width: 10ch;
             font-size: clamp(3.4rem, 11vw, 6.7rem);
             line-height: 0.94;
-            letter-spacing: -0.075em;
-            margin-bottom: 18px;
+            letter-spacing: -0.05em;
+            margin-bottom: 24px;
         }
 
         .hero-subtitle {
@@ -205,22 +205,21 @@
             font-size: clamp(1.08rem, 2.2vw, 1.28rem);
             line-height: 1.55;
             color: rgba(251, 250, 244, 0.8);
-            margin-bottom: 28px;
-        }
-
-        .hero-intro {
-            max-width: 39ch;
-            color: rgba(180, 219, 222, 0.92);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 34px;
+            margin-bottom: 38px;
         }
 
         .hero-actions {
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 34px;
+            margin-bottom: 20px;
+        }
+
+        .hero-reading-hint {
+            font-size: 0.84rem;
+            color: rgba(180, 219, 222, 0.56);
+            font-family: "FK Grotesk Mono", monospace;
+            letter-spacing: 0.04em;
         }
 
         .button {
@@ -246,7 +245,13 @@
 
         .button.secondary {
             color: var(--paper);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(180, 219, 222, 0.28);
+        }
+
+        .button.secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(180, 219, 222, 0.4);
         }
 
         .hero-reading {
@@ -273,62 +278,18 @@
 
         .hero-panel {
             position: relative;
-            padding: 22px;
             border-radius: var(--radius-xl);
-            background:
-                linear-gradient(180deg, rgba(251, 250, 244, 0.08), rgba(251, 250, 244, 0.02)),
-                rgba(12, 33, 32, 0.78);
-            border: 1px solid rgba(180, 219, 222, 0.14);
-            box-shadow: var(--shadow-strong);
             overflow: hidden;
-        }
-
-        .hero-panel::after {
-            content: "";
-            position: absolute;
-            inset: auto -50px -80px auto;
-            width: 220px;
-            height: 220px;
-            background: radial-gradient(circle, rgba(255, 210, 166, 0.2), transparent 65%);
-            pointer-events: none;
-        }
-
-        .mini-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .mini-card {
-            padding: 14px 14px 16px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(180, 219, 222, 0.12);
-        }
-
-        .mini-card-label {
-            display: block;
-            margin-bottom: 8px;
-            font-family: "FK Grotesk Mono", monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: rgba(251, 250, 244, 0.56);
-        }
-
-        .mini-card-value {
-            color: var(--paper);
-            font-size: 0.98rem;
-            line-height: 1.45;
+            align-self: center;
         }
 
         .hero-visual {
             position: relative;
-            border-radius: 26px;
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            aspect-ratio: 1.03;
+            aspect-ratio: 0.82;
             border: 1px solid rgba(180, 219, 222, 0.16);
+            box-shadow: var(--shadow-strong);
         }
 
         .hero-visual::before {
@@ -336,8 +297,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(180deg, rgba(9, 23, 23, 0.1), rgba(9, 23, 23, 0.54)),
-                radial-gradient(circle at 50% 30%, rgba(255, 210, 166, 0.16), transparent 40%);
+                linear-gradient(180deg, rgba(9, 23, 23, 0.06), rgba(9, 23, 23, 0.38)),
+                radial-gradient(circle at 50% 30%, rgba(255, 210, 166, 0.12), transparent 40%);
             z-index: 1;
         }
 
@@ -484,6 +445,34 @@
         .glance-card.featured li,
         .glance-card.featured .reading-list {
             color: rgba(251, 250, 244, 0.8);
+        }
+
+        .context-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 28px;
+            padding: 20px 22px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(19, 59, 57, 0.06), rgba(46, 142, 138, 0.06));
+            border: 1px solid rgba(19, 59, 57, 0.08);
+        }
+
+        .context-chip-label {
+            display: block;
+            margin-bottom: 6px;
+            font-family: "FK Grotesk Mono", monospace;
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--true-turquoise);
+        }
+
+        .context-chip-value {
+            display: block;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.5;
         }
 
         .reading-list {
@@ -1008,7 +997,8 @@
             .hero-reading,
             .signal-strip,
             .metric-grid,
-            .roadmap-steps {
+            .roadmap-steps,
+            .context-strip {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -1055,7 +1045,8 @@
             .signal-strip,
             .metric-grid,
             .hero-reading,
-            .roadmap-steps {
+            .roadmap-steps,
+            .context-strip {
                 grid-template-columns: 1fr;
             }
 
@@ -1146,46 +1137,14 @@
                     <div class="eyebrow">Document de lecture stratégique</div>
                     <h1>Suite à notre échange</h1>
                     <p class="hero-subtitle">Compréhension du besoin commercial de Synapse Développement et proposition de contribution à la prospection.</p>
-                    <p class="hero-intro">J’ai voulu transformer notre échange en lecture stratégique claire : ce que j’ai compris du besoin, où se situe le vrai levier, et comment je pourrais contribuer utilement.</p>
                     <div class="hero-actions">
                         <a class="button primary" href="#lecture-rapide">Lire l'essentiel</a>
                         <a class="button secondary" href="#prototype">Voir le prototype</a>
                     </div>
-                    <div class="hero-reading">
-                        <div class="reading-chip">
-                            <strong>Lecture rapide</strong>
-                            90 secondes pour saisir le contexte, l'enjeu et la logique d'action.
-                        </div>
-                        <div class="reading-chip">
-                            <strong>Lecture attentive</strong>
-                            Des sections courtes, structurées, avec peu de densité par écran.
-                        </div>
-                        <div class="reading-chip">
-                            <strong>Lecture détaillée</strong>
-                            Un prototype interactif pour explorer plusieurs scénarios de déploiement.
-                        </div>
-                    </div>
+                    <p class="hero-reading-hint">~90 secondes de lecture pour l'essentiel</p>
                 </div>
 
-                <aside class="hero-panel" aria-label="Repères de lecture">
-                    <div class="mini-grid">
-                        <div class="mini-card">
-                            <span class="mini-card-label">Contexte</span>
-                            <div class="mini-card-value">Synapse vend une IA utile, concrète, mise en production.</div>
-                        </div>
-                        <div class="mini-card">
-                            <span class="mini-card-label">Nœud du sujet</span>
-                            <div class="mini-card-value">Structurer une prospection plus active, lisible et mesurable.</div>
-                        </div>
-                        <div class="mini-card">
-                            <span class="mini-card-label">Apport possible</span>
-                            <div class="mini-card-value">Base dormante, LinkedIn B2B, CRM léger, dynamique terrain.</div>
-                        </div>
-                        <div class="mini-card">
-                            <span class="mini-card-label">Mode opératoire</span>
-                            <div class="mini-card-value">Immersion, diagnostic, roadmap, exécution progressive.</div>
-                        </div>
-                    </div>
+                <aside class="hero-panel" aria-label="Visuel">
                     <figure class="hero-visual">
                         <img src="./assets/images/Gemini_Generated_Image_j5w88bj5w88bj5w8.png" alt="Référence visuelle sombre et lumineuse, sans texte, inspirée de l'univers Perplexity">
                     </figure>
@@ -1203,6 +1162,25 @@
                         <h2>L'essentiel en 90 secondes</h2>
                     </div>
                     <p class="section-kicker">Avant d'entrer dans le détail, voici la lecture diagonale du document. L'idée n'est pas seulement de comprendre le besoin, mais d'identifier un angle de contribution directement utile à la croissance commerciale.</p>
+                </div>
+
+                <div class="context-strip">
+                    <div class="context-chip">
+                        <span class="context-chip-label">Contexte</span>
+                        <span class="context-chip-value">Synapse vend une IA utile, concrète, mise en production.</span>
+                    </div>
+                    <div class="context-chip">
+                        <span class="context-chip-label">Nœud du sujet</span>
+                        <span class="context-chip-value">Structurer une prospection plus active, lisible et mesurable.</span>
+                    </div>
+                    <div class="context-chip">
+                        <span class="context-chip-label">Apport possible</span>
+                        <span class="context-chip-value">Base dormante, LinkedIn B2B, CRM léger, dynamique terrain.</span>
+                    </div>
+                    <div class="context-chip">
+                        <span class="context-chip-label">Mode opératoire</span>
+                        <span class="context-chip-value">Immersion, diagnostic, roadmap, exécution progressive.</span>
+                    </div>
                 </div>
 
                 <div class="grid-3">
